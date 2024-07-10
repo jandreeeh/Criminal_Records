@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class DatabaseConnection {
+    Connection conn;
     DatabaseConnection()
     {
         String url = "jdbc:mysql://127.0.0.1:3306/signuplogin";
@@ -15,7 +16,7 @@ public class DatabaseConnection {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(url, user, pass);
-            System.out.println("Database Connected Succesfully");
+            System.out.println("Database Connected");
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
