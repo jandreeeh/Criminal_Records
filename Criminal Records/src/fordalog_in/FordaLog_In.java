@@ -15,5 +15,8 @@ public class FordaLog_In {
        MainMenuFrame.setVisible(true);
        MainMenuFrame.pack();
        MainMenuFrame.setLocationRelativeTo(null);
+       System.out.println("New Commit");
+        
+        
     }
 }
