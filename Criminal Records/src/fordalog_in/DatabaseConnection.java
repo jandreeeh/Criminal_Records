@@ -9,7 +9,7 @@ public class DatabaseConnection {
     static public Connection conn;
     DatabaseConnection()
     {
-        String url = "jdbc:mysql://127.0.0.1:3306/signuplogin";
+        String url = "jdbc:mysql://127.0.0.1:3306/dcpd_db";
         String user = "root";
         String pass = "reygian@destroyer";
         
