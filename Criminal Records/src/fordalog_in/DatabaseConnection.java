@@ -3,10 +3,10 @@ package fordalog_in;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import javax.swing.JOptionPane;
 
 public class DatabaseConnection {
-    static public Connection conn;
+    public Connection conn;
     DatabaseConnection()
     {
         String url = "jdbc:mysql://127.0.0.1:3306/dcpd_db";
@@ -15,7 +15,7 @@ public class DatabaseConnection {
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(url, user, pass);
+            conn = DriverManager.getConnection(url, user, pass);
             System.out.println("Database Connected");
             
         } catch (ClassNotFoundException ex) {

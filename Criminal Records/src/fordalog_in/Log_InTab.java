@@ -1,14 +1,14 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package fordalog_in;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.awt.Color;
 import java.sql.*;
-
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,24 +32,31 @@ public class Log_InTab extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        loginPanel = new javax.swing.JPanel();
         Log_InButton = new javax.swing.JButton();
         PreviousButton = new javax.swing.JButton();
-        txtpassword = new javax.swing.JPasswordField();
+        PasswordHere = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
-        txtemail = new javax.swing.JTextField();
+        EmailInput = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        RevealPassword = new javax.swing.JCheckBox();
+        jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        loginPanel.setBackground(new java.awt.Color(35, 35, 35));
 
+        Log_InButton.setBackground(new java.awt.Color(0, 153, 153));
+        Log_InButton.setFont(new java.awt.Font("Manrope", 0, 14)); // NOI18N
         Log_InButton.setText("Log-In");
         Log_InButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +64,8 @@ public class Log_InTab extends javax.swing.JFrame {
             }
         });
 
+        PreviousButton.setBackground(new java.awt.Color(0, 153, 153));
+        PreviousButton.setFont(new java.awt.Font("Manrope", 0, 14)); // NOI18N
         PreviousButton.setText("Previous");
         PreviousButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,163 +73,205 @@ public class Log_InTab extends javax.swing.JFrame {
             }
         });
 
-        txtpassword.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        PasswordHere.setFont(new java.awt.Font("Manrope", 0, 12)); // NOI18N
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Manrope", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Password:");
 
-        txtemail.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        txtemail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtemailActionPerformed(evt);
-            }
-        });
+        EmailInput.setFont(new java.awt.Font("Manrope", 0, 12)); // NOI18N
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Manrope", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("E-mail:");
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Coolvetica Rg", 0, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Log-In");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        RevealPassword.setBackground(new java.awt.Color(51, 51, 51));
+        RevealPassword.setFont(new java.awt.Font("Manrope", 0, 14)); // NOI18N
+        RevealPassword.setForeground(new java.awt.Color(255, 255, 255));
+        RevealPassword.setText("Show Password");
+        RevealPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RevealPasswordActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
+        loginPanel.setLayout(loginPanelLayout);
+        loginPanelLayout.setHorizontalGroup(
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginPanelLayout.createSequentialGroup()
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(loginPanelLayout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jLabel7))
+                    .addGroup(loginPanelLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(PreviousButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
-                                .addComponent(Log_InButton))
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(txtemail)
-                            .addComponent(txtpassword)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(jLabel7)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(RevealPassword)
+                            .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(loginPanelLayout.createSequentialGroup()
+                                    .addComponent(PreviousButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Log_InButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel1)
+                                .addComponent(EmailInput, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                                .addComponent(PasswordHere)))))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+        loginPanelLayout.setVerticalGroup(
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginPanelLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
                 .addComponent(jLabel7)
-                .addGap(45, 45, 45)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(EmailInput, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PasswordHere, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(RevealPassword)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PreviousButton)
                     .addComponent(Log_InButton))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addGap(47, 47, 47))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
+        getContentPane().add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Log_In_Image.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 290, 410));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/Coat_Of_ArmsDavao.png"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 290, 290));
 
-        jLabel5.setFont(new java.awt.Font("Segoe Script", 1, 52)); // NOI18N
-        jLabel5.setText("Citizen's");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 260, 80));
+        jLabel3.setFont(new java.awt.Font("Freshman", 0, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel3.setText("C");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Monospaced", 1, 52)); // NOI18N
-        jLabel4.setText("Records");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 70, 220, 90));
+        jLabel4.setFont(new java.awt.Font("Freshman", 0, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("itzen");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Untitled design (3).png"))); // NOI18N
-        jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 540, -1));
+        jLabel5.setFont(new java.awt.Font("Freshman", 0, 48)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel5.setText("D");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Freshman", 0, 48)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("ecords");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 370, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Freshman", 0, 48)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 51, 0));
+        jLabel9.setText("R");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Freshman", 0, 48)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("atabase");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, -1, -1));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/DavaoSkylinePhotoShopped.png"))); // NOI18N
+        jLabel11.setText("jLabel11");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 540, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
     //Button Interaction
     private void Log_InButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Log_InButtonActionPerformed
-      
-      String user = txtemail.getText();
-       String passw = txtpassword.getText();
-       
-        String url = "jdbc:mysql://127.0.0.1:3306/dcpd_db";
-        String username = "root";
-        String password = "reygian@destroyer";
-
-        // SQL query with placeholders
-        String sql = "SELECT * FROM loginsignup WHERE username = ? AND password = ?";
-
-        // JDBC objects
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        
+        String PasswordDone = new String (PasswordHere.getPassword());
+        String EmailDone = EmailInput.getText();
+        String Confirmpass = "";
+        String Confirmuser = "";
+         DatabaseConnection DB = new DatabaseConnection();
+         
+         Statement stmt = null;
+         ResultSet rs = null;
+         
+         
+        //Check if there is an input
+        if(PasswordDone.isEmpty() && EmailDone.isEmpty())
+        {
+            PasswordHere.setText("Please Enter your Password");
+            PasswordHere.setForeground(Color.RED);
+            
+            EmailInput.setText("Please Enter your Email");
+            EmailInput.setForeground(Color.RED);
+        }
+        //================
+        
 
         try {
-            // Step 1: Load the JDBC driver (optional for newer versions of JDBC)
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            String sql = "select * from loginsignupadmin";
+            stmt = DB.conn.createStatement();
+            
+            rs = stmt.executeQuery(sql);
+            
+            while(rs.next())
+            {
+                String user = rs.getString("username");
+                String passw = rs.getString("pass");
+                
+                if(user.equals(EmailDone) && passw.equals(PasswordDone))
+                {
+                    Confirmpass = passw;
+                    Confirmuser = user;
+                    /*System.out.println("Welcome Admin");
+                    JOptionPane.showMessageDialog(this, "Welcome Admin");
+                      SearchRecords SearchFrame = new SearchRecords();
+                            SearchFrame.setVisible(true);
+                            SearchFrame.pack();
+                            SearchFrame.setLocationRelativeTo(null);
+                            this.dispose();*/
+                }
 
-            // Step 2: Establish a connection
-            connection = DriverManager.getConnection(url, username, password);
-
-            // Step 3: Create a Prepared Statement
-            preparedStatement = connection.prepareStatement(sql);
-
-            // Step 4: Set the parameters
-           preparedStatement.setString(1, user);
-            preparedStatement.setString(2, passw);
-
-            // Step 5: Execute the query
-            resultSet = preparedStatement.executeQuery();
-
-            // Step 6: Process the results
-            while (resultSet.next()) {
-                // Retrieve data by column name or index
-                String column1 = resultSet.getString("reygian");
-                String column2 = resultSet.getString("4567");
-
-                // Display the data
-                System.out.println(" username: " + column1 + ", password: " + column2);
             }
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            // Step 7: Close the resources
-            try {
-                if (resultSet != null) resultSet.close();
-                if (preparedStatement != null) preparedStatement.close();
-                if (connection != null) connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
+            
+            if(Confirmpass.equals(PasswordDone) && Confirmuser.equals(EmailDone))
+            {
+                System.out.println("Welcome Admin");
+                    JOptionPane.showMessageDialog(this, "Welcome Admin");
+                      SearchRecords SearchFrame = new SearchRecords();
+                            SearchFrame.setVisible(true);
+                            SearchFrame.pack();
+                            SearchFrame.setLocationRelativeTo(null);
+                            this.dispose();
             }
+                        else
+                        {
+                           JOptionPane.showMessageDialog(this, "WRONG Credentials");
+                          EmailInput.setText(null);
+                          PasswordHere.setText(null);
+                        }
+        } catch (SQLException ex) {
+            Logger.getLogger(Log_InTab.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
-      
-
-
-
-
-
-
-
-
-//DatabaseConnection.conn
+        
+        try {
+            stmt.close();
+            rs.close();
+            DB.conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Log_InTab.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_Log_InButtonActionPerformed
 
+    
+    
     private void PreviousButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PreviousButtonActionPerformed
        MainMenu MainMenuFrame = new MainMenu ();
        MainMenuFrame.setVisible(true);
@@ -229,24 +280,38 @@ public class Log_InTab extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_PreviousButtonActionPerformed
 
-    private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtemailActionPerformed
+    private void RevealPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RevealPasswordActionPerformed
+        
+        if(RevealPassword.isSelected())
+        {
+            PasswordHere.setEchoChar((char)0);
+        }
+        
+        else
+        {
+            PasswordHere.setEchoChar('•');
+        }
+    }//GEN-LAST:event_RevealPasswordActionPerformed
 
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField EmailInput;
     private javax.swing.JButton Log_InButton;
+    private javax.swing.JPasswordField PasswordHere;
     private javax.swing.JButton PreviousButton;
+    private javax.swing.JCheckBox RevealPassword;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtemail;
-    private javax.swing.JPasswordField txtpassword;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel loginPanel;
     // End of variables declaration//GEN-END:variables
 }
