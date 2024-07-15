@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Acer/Desktop/Criminal_Records-main/Criminal%20Records/src/fordalog_in/CitizenDatabase.java</file>
-            <file>file:/C:/Users/Acer/Desktop/Criminal_Records-main/Criminal%20Records/src/fordalog_in/DatabaseConnection.java</file>
-            <file>file:/C:/Users/Acer/Desktop/Criminal_Records-main/Criminal%20Records/src/fordalog_in/Head_Page.java</file>
+            <file>file:/C:/Users/Acer/Desktop/Criminal_Records-main/Criminal%20Records/src/fordalog_in/Sign_InFormStep2.java</file>
+            <file>file:/C:/Users/Acer/Desktop/Criminal_Records-main/Criminal%20Records/src/fordalog_in/Sign_InForm.java</file>
+            <file>file:/C:/Users/Acer/Desktop/Criminal_Records-main/Criminal%20Records/src/fordalog_in/MainMenu.java</file>
+            <file>file:/C:/Users/Acer/Desktop/Criminal_Records-main/Criminal%20Records/src/fordalog_in/Sign_InFormStep3.java</file>
             <file>file:/C:/Users/Acer/Desktop/Criminal_Records-main/Criminal%20Records/src/fordalog_in/Log_InTab.java</file>
-            <file>file:/C:/Users/Acer/Desktop/Criminal_Records-main/Criminal%20Records/src/fordalog_in/InformationSection.java</file>
+            <file>file:/C:/Users/Acer/Desktop/Criminal_Records-main/Criminal%20Records/src/fordalog_in/LogInTab.java</file>
+            <file>file:/C:/Users/Acer/Desktop/Criminal_Records-main/Criminal%20Records/src/fordalog_in/SearchRecords.java</file>
         </group>
     </open-files>
 </project-private>

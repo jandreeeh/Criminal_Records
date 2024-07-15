@@ -8,6 +8,9 @@ package fordalog_in;
 import java.awt.*;
 import javax.swing.*;
 import java.util.regex.Pattern;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 //===================
 
 
@@ -466,7 +469,7 @@ public class Sign_InForm extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     public void switchPanel(JPanel panel){
         signInPane.removeAll();
         signInPane.add(panel);
@@ -474,6 +477,16 @@ public class Sign_InForm extends javax.swing.JFrame
         signInPane.revalidate();
     }
     public void proceedFunction(){
+        
+        DatabaseConnection DB = new DatabaseConnection();
+        PreparedStatement stmt = null;
+        
+        String email = null;
+        String fname = null;
+        String lname = null;
+        String mname = null;
+        String pass = null;
+        
         switch(currentState){
             case 1:
                 if (emailTxt.getText().isEmpty())
@@ -512,6 +525,7 @@ public class Sign_InForm extends javax.swing.JFrame
                     }
                         else
                         {
+                           
                             firstNameErrorLbl.setText("");
                         }
 
@@ -541,6 +555,7 @@ public class Sign_InForm extends javax.swing.JFrame
                     }
                         else
                         {
+                            lname = lastNameTxt.getText();
                             lastNameErrorLbl.setText("");
                         }
                
@@ -585,6 +600,36 @@ public class Sign_InForm extends javax.swing.JFrame
                 //Proceed to menu
                 else
                 {
+                    email = emailTxt.getText();
+                    fname = firstNameTxt.getText();
+                    mname = middleNameTxt.getText();
+                    lname = lastNameTxt.getText();
+                    pass = passwordInputTxt.getText();
+                    System.out.println(fname + lname + email + pass + mname);
+              
+                try {
+                String insert = "insert into loginsignupuser (firstname, lastname, Minitial, password, email) values ( ?, ?, ?, ?, ?);";
+                    
+                stmt = DB.conn.prepareStatement(insert);
+     
+                stmt.setString(1, fname);
+                stmt.setString(2, lname);
+                stmt.setString(3, mname);
+                stmt.setString(4, pass);
+                stmt.setString(5, email);
+                
+                int numrow = stmt.executeUpdate();
+                
+                if(numrow > 0)
+                {
+                    System.out.println("Succesfully inserted");
+                }
+                
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Sign_InForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
                     MainMenu MainMenuFrame = new MainMenu ();
                     MainMenuFrame.setVisible(true);
                     MainMenuFrame.pack();
